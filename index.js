@@ -40,16 +40,18 @@ inquirer.prompt([
     };
     newShape= new shape(shapeOptions);
 
+    fs.writeFile('examples/logo.svg', newShape.render(), err => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('logo generated')
+        }
+    })
+
 })
 
 
-fs.writeToFile('examples/logo.svg', newShape.render(), err => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('logo generated')
-    }
-}) 
+ 
 }
 
 promptUser()
