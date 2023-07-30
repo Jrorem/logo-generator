@@ -32,15 +32,16 @@ inquirer.prompt([
 
     let newShape;
 
-    const shapeOptions = {
+    let shapeOptions = {
         text: text,
         textColor: textColor,
-        shapeColor: shapeColor,  
+        shapeColor: shapeColor, 
+        shape: shape 
     };
     newShape= new shape(shapeOptions);
 
 })
-}
+
 
 fs.writeToFile('examples/logo.svg', newShape.render(), err => {
     if (err) {
@@ -49,5 +50,6 @@ fs.writeToFile('examples/logo.svg', newShape.render(), err => {
         console.log('logo generated')
     }
 }) 
+}
 
 promptUser()
